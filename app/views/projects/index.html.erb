@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<%= search_form_for @search, method: :get do |f| %>
+  <%= f.label :full_search_cont, "Name contains" %>
+  <%= f.search_field :full_search_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+    <p>
+      <%= link_to "Show this project", project %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New project", new_project_path %>
